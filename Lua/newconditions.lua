@@ -1627,6 +1627,32 @@ condlist["qn"] = function(params,checkedconds,checkedconds_,cdata)
 
 			return (allfound == #params),checkedconds
 		end
+condlist["usually"] = function(params,checkedconds,checkedconds_,cdata)
+			local unitid,x,y,conds,i = cdata.unitid,cdata.x,cdata.y,tostring(cdata.conds),cdata.i
+			
+			if (condstatus[tostring(conds)] == nil) then
+				condstatus[tostring(conds)] = {}
+			end
+			
+			local rnd = fixedrandom(1,8)
+			
+			local d = condstatus[tostring(conds)]
+			local id = "usually" .. "_" .. tostring(i)
+			
+			if (unitid ~= 2) then
+				id = id .. "_" .. tostring(unitid)
+			else
+				id = id .. "_" .. tostring(unitid) .. tostring(x) .. tostring(y)
+			end
+			
+			if (d[id] ~= nil) then
+				rnd = d[id]
+			else
+				d[id] = rnd
+			end
+			
+			return (rnd > 1),checkedconds
+		end
 condlist["sometimes"] = function(params,checkedconds,checkedconds_,cdata)
 			local unitid,x,y,conds,i = cdata.unitid,cdata.x,cdata.y,tostring(cdata.conds),cdata.i
 			
@@ -1690,6 +1716,32 @@ condlist["rarely"] = function(params,checkedconds,checkedconds_,cdata)
 			
 			local d = condstatus[tostring(conds)]
 			local id = "rarely" .. "_" .. tostring(i)
+			
+			if (unitid ~= 2) then
+				id = id .. "_" .. tostring(unitid)
+			else
+				id = id .. "_" .. tostring(unitid) .. tostring(x) .. tostring(y)
+			end
+			
+			if (d[id] ~= nil) then
+				rnd = d[id]
+			else
+				d[id] = rnd
+			end
+			
+			return (rnd == 1),checkedconds
+		end
+condlist["scarce"] = function(params,checkedconds,checkedconds_,cdata)
+			local unitid,x,y,conds,i = cdata.unitid,cdata.x,cdata.y,tostring(cdata.conds),cdata.i
+			
+			if (condstatus[tostring(conds)] == nil) then
+				condstatus[tostring(conds)] = {}
+			end
+			
+			local rnd = fixedrandom(1,8)
+			
+			local d = condstatus[tostring(conds)]
+			local id = "scarce" .. "_" .. tostring(i)
 			
 			if (unitid ~= 2) then
 				id = id .. "_" .. tostring(unitid)
