@@ -1,8 +1,20 @@
-local version = "b1.5.1"
+local version = "b1.6.0"
 timedmessage(string.format("$1,3TUWIH's Mods$0,3 version: v%s", version))
 
+table.insert(editor_objlist_order, "text_usually")
+editor_objlist["text_usually"] = 
+{
+	name = "text_usually",
+	sprite_in_root = false,
+	unittype = "text",
+	tags = {"text","text_condition","text_prefix","abstract"},
+	tiling = -1,
+	type = 3,
+	layer = 20,
+	colour = {5, 1},
+	colour_active = {5, 2},
+}
 table.insert(editor_objlist_order, "text_sometimes")
-
 editor_objlist["text_sometimes"] = 
 {
 	name = "text_sometimes",
@@ -40,6 +52,19 @@ editor_objlist["text_rarely"] =
 	layer = 20,
 	colour = {4, 1},
 	colour_active = {4, 2},
+}
+table.insert(editor_objlist_order, "text_scarce")
+editor_objlist["text_scarce"] = 
+{
+	name = "text_scarce",
+	sprite_in_root = false,
+	unittype = "text",
+	tags = {"text","text_condition","text_prefix","abstract"},
+	tiling = -1,
+	type = 3,
+	layer = 20,
+	colour = {3, 0},
+	colour_active = {3, 1},
 }
 table.insert(editor_objlist_order, "text_gold")
 editor_objlist["text_gold"] = 
