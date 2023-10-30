@@ -1,4 +1,4 @@
-local version = "b1.6.0"
+local version = "b1.6.1"
 timedmessage(string.format("$1,3TUWIH's Mods$0,3 version: v%s", version))
 
 table.insert(editor_objlist_order, "text_usually")
